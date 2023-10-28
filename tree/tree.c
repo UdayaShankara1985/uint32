@@ -25,7 +25,7 @@ int get_height(struct _node *t)
    return t->height;
 }
 
-#define ADJUST_HEIGHT(t)         (max(HEIGHT(LEFT(t)), HEIGHT(RIGHT(t))) + 1)
+#define ADJUST_HEIGHT(t)     (max(HEIGHT(LEFT(t)), HEIGHT(RIGHT(t))) + 1)
 
 struct _node * create_node (int data)
 {
@@ -92,6 +92,7 @@ struct _node * rotate_left (struct _node *t)
        (c) check the balance between left and right
        (d) rotate the tree 
 */
+
 struct _node* insert_into_tree ( struct _node *t, int data)
 {
     int balance;
@@ -117,4 +118,3 @@ struct _node* insert_into_tree ( struct _node *t, int data)
 
     return t;
 }
-
