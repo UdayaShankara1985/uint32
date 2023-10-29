@@ -8,7 +8,10 @@ struct _node * get_matching_node (struct _node *t, int data)
 
    if (!t) return NULL;
 
-   if (data == t->data) return t;
+   if (data == t->data){ 
+//       printf ("found node %d value %d \n", DATA(t), data);
+       return t;
+   }
 
    n = get_matching_node(t->left , data);
    if (n) return n;
@@ -18,10 +21,13 @@ struct _node * get_matching_node (struct _node *t, int data)
 }
 
 
-int main()
+int main(int argc, char **argv)
 {
    struct _node * t = NULL;
-int print_nodes_at_k_distance (struct _node *t, struct _node *target, int k);
+   struct _node * t1 = NULL;
+   int value;
+ 
+   int print_nodes_at_k_distance (struct _node *t, struct _node *target, int k);
 
    t = insert_into_tree (t, 3);
    t = insert_into_tree (t, 2);
@@ -30,7 +36,9 @@ int print_nodes_at_k_distance (struct _node *t, struct _node *target, int k);
    t = insert_into_tree (t, 15);
    t = insert_into_tree (t, 71);
 
+   t1 = insert_into_tree (t1, 71);
 
-   print_nodes_at_k_distance (t, get_matching_node (t, 9), 2);
 //   show_tree (t, t);
+   value = atoi (argv[1]);
+   printf ("in order %d is %d \n", value, in_order_successor( t, value));
 }
